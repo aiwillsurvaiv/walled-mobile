@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import Button from './components/Button';
+import InputNotes from './components/InputNotes';
 
 export default function App() {
   return (
@@ -11,6 +13,7 @@ export default function App() {
         style={styles.input}
         placeholder="Email"
         placeholderTextColor="#aaa"
+        keyboardType='email-address'
       />
 
       <TextInput
@@ -20,9 +23,8 @@ export default function App() {
         secureTextEntry={true}
       />
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      <InputNotes text="Notes" />
+      <Button text="Login" />
 
       <StatusBar style="auto" />
     </View>
@@ -34,12 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    // textAlign: 'left',
     justifyContent: 'center',
     padding: 20,
   },
   logo: {
-    // width: 100,
-    // height: 100,
     marginBottom: 30,
   },
   title: {
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
+
   input: {
     width: '100%',
     height: 50,
@@ -57,19 +59,5 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     backgroundColor: '#f9f9f9',
     fontSize: 16,
-  },
-  button: {
-    backgroundColor: '#4DB6AC',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 15,
-    width: '100%',
-    alignItems: 'center',
-
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+  }
 });
